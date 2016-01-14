@@ -1,0 +1,59 @@
+<?php return array (
+  'unique_key' => 'category',
+  'preserve_keys' => false,
+  'update_object' => true,
+  'related_objects' => 
+  array (
+    'Plugins' => 
+    array (
+      'fccd3e4003c13fdeba1eb7d882682817' => 
+      array (
+        'preserve_keys' => false,
+        'update_object' => true,
+        'unique_key' => 'name',
+        'class' => 'modPlugin',
+        'object' => '{"id":1,"source":0,"property_preprocess":0,"name":"DefaultResourceGroup","description":"Assigns new resources to one or more Resource Groups","editor_type":0,"category":0,"cache_type":0,"plugincode":"\\/**\\n * DefaultResourceGroup\\n * \\n * Copyright 2012-2014 Bob Ray\\n *\\n * @author Bob Ray\\n * @created 1\\/20\\/12\\n *\\n * DefaultResourceGroup is free software; you can redistribute it and\\/or modify it\\n * under the terms of the GNU General Public License as published by the Free\\n * Software Foundation; either version 2 of the License, or (at your option) any\\n * later version.\\n *\\n * DefaultResourceGroup is distributed in the hope that it will be useful, but WITHOUT ANY\\n * WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR\\n * A PARTICULAR PURPOSE. See the GNU General Public License for more details.\\n *\\n * You should have received a copy of the GNU General Public License along with\\n * DefaultResourceGroup; if not, write to the Free Software Foundation, Inc., 59 Temple\\n * Place, Suite 330, Boston, MA 02111-1307 USA\\n *\\n * @package defaultresourcegroup\\n *\\/\\n\\/**\\n * MODx DefaultResourceGroup Snippet\\n *\\n * Description Adds resources to default resource group(s)\\n  *\\n * @package defaultresourcegroup\\n *\\n * @param drg_groups string -- comma-separated list of resource groups\\n *\\/\\n\\n  $drg_groups = null;\\n\\n\\/** @var $modx modX *\\/\\n\\/** @var $scriptProperties array *\\/\\n\\nfunction matchParent($resource) {\\n\\n    \\/** @var $resource modResource *\\/\\n    \\/** @var $grpObject modResourceGroupResource *\\/\\n\\n    $parentId = $resource->get(\'parent\');\\n\\n    $res = $parentId;\\n    \\/* top level documents are not regarded! *\\/\\n    if ($parentId > 0) {\\n        $parentResource = $resource->getOne(\'Parent\');\\n        $groups = $parentResource->getMany(\'ResourceGroupResources\');\\n        foreach ($groups as $name => $grpObject) {\\n            $resGrpId = (int) $grpObject->get(\'document_group\');\\n            @$resource->joinGroup($resGrpId);\\n        }\\n    }\\n}\\n\\n\\/* only operate on new resources *\\/\\nif ($mode != modSystemEvent::MODE_NEW) return;\\n\\n$groupSetting = $modx->getOption(\'drg_groups\', $scriptProperties, null);\\n\\nif (!empty($groupSetting)) {\\n   if ($groupSetting == \'parent\' || $groupSetting == \'Parent\') {\\n       matchParent($resource);\\n   } else {\\n       $groups = explode(\',\', $groupSetting);\\n\\n       foreach ($groups as $group) {\\n           $success = $resource->joinGroup(trim($group));\\n       }\\n   }\\n}\\n\\nreturn \'\';","locked":0,"properties":"a:1:{s:10:\\"drg_groups\\";a:7:{s:4:\\"name\\";s:10:\\"drg_groups\\";s:4:\\"desc\\";s:173:\\"Resource Group name or comma-separated list of Resource Group names to assign new resources to. Set to `Parent` to have new resources inherit their parent\'s resource groups.\\";s:4:\\"type\\";s:9:\\"textfield\\";s:7:\\"options\\";a:0:{}s:5:\\"value\\";s:0:\\"\\";s:7:\\"lexicon\\";N;s:4:\\"area\\";s:0:\\"\\";}}","disabled":1,"moduleguid":"","static":0,"static_file":"","content":"\\/**\\n * DefaultResourceGroup\\n * \\n * Copyright 2012-2014 Bob Ray\\n *\\n * @author Bob Ray\\n * @created 1\\/20\\/12\\n *\\n * DefaultResourceGroup is free software; you can redistribute it and\\/or modify it\\n * under the terms of the GNU General Public License as published by the Free\\n * Software Foundation; either version 2 of the License, or (at your option) any\\n * later version.\\n *\\n * DefaultResourceGroup is distributed in the hope that it will be useful, but WITHOUT ANY\\n * WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR\\n * A PARTICULAR PURPOSE. See the GNU General Public License for more details.\\n *\\n * You should have received a copy of the GNU General Public License along with\\n * DefaultResourceGroup; if not, write to the Free Software Foundation, Inc., 59 Temple\\n * Place, Suite 330, Boston, MA 02111-1307 USA\\n *\\n * @package defaultresourcegroup\\n *\\/\\n\\/**\\n * MODx DefaultResourceGroup Snippet\\n *\\n * Description Adds resources to default resource group(s)\\n  *\\n * @package defaultresourcegroup\\n *\\n * @param drg_groups string -- comma-separated list of resource groups\\n *\\/\\n\\n  $drg_groups = null;\\n\\n\\/** @var $modx modX *\\/\\n\\/** @var $scriptProperties array *\\/\\n\\nfunction matchParent($resource) {\\n\\n    \\/** @var $resource modResource *\\/\\n    \\/** @var $grpObject modResourceGroupResource *\\/\\n\\n    $parentId = $resource->get(\'parent\');\\n\\n    $res = $parentId;\\n    \\/* top level documents are not regarded! *\\/\\n    if ($parentId > 0) {\\n        $parentResource = $resource->getOne(\'Parent\');\\n        $groups = $parentResource->getMany(\'ResourceGroupResources\');\\n        foreach ($groups as $name => $grpObject) {\\n            $resGrpId = (int) $grpObject->get(\'document_group\');\\n            @$resource->joinGroup($resGrpId);\\n        }\\n    }\\n}\\n\\n\\/* only operate on new resources *\\/\\nif ($mode != modSystemEvent::MODE_NEW) return;\\n\\n$groupSetting = $modx->getOption(\'drg_groups\', $scriptProperties, null);\\n\\nif (!empty($groupSetting)) {\\n   if ($groupSetting == \'parent\' || $groupSetting == \'Parent\') {\\n       matchParent($resource);\\n   } else {\\n       $groups = explode(\',\', $groupSetting);\\n\\n       foreach ($groups as $group) {\\n           $success = $resource->joinGroup(trim($group));\\n       }\\n   }\\n}\\n\\nreturn \'\';"}',
+        'guid' => '316e90f698cfc1a74c71fc4327e7a424',
+        'native_key' => 1,
+        'signature' => 'e092a5dc0c114bed056441e86ea3be57',
+      ),
+    ),
+  ),
+  'related_object_attributes' => 
+  array (
+    'Plugins' => 
+    array (
+      'preserve_keys' => false,
+      'update_object' => true,
+      'unique_key' => 'name',
+    ),
+  ),
+  'namespace' => 'defaultresourcegroup',
+  'resolve' => 
+  array (
+    0 => 
+    array (
+      'type' => 'file',
+      'body' => '{"source":"defaultresourcegroup-1.2.0-p1\\/modCategory\\/6d9d13f769bc3683a1b8d97a50ac0307\\/0\\/","target":"return MODX_CORE_PATH . \'components\\/\';","name":"defaultresourcegroup"}',
+    ),
+    1 => 
+    array (
+      'type' => 'php',
+      'body' => '{"source":"defaultresourcegroup-1.2.0-p1\\/modCategory\\/6d9d13f769bc3683a1b8d97a50ac0307.plugin.resolver.resolver","type":"php","name":"plugin.resolver"}',
+    ),
+    2 => 
+    array (
+      'type' => 'php',
+      'body' => '{"source":"defaultresourcegroup-1.2.0-p1\\/modCategory\\/6d9d13f769bc3683a1b8d97a50ac0307.defaultresourcegroup.resolver.resolver","type":"php","name":"defaultresourcegroup.resolver"}',
+    ),
+  ),
+  'validate' => NULL,
+  'vehicle_package' => 'transport',
+  'vehicle_class' => 'xPDOObjectVehicle',
+  'guid' => '332a29c82dfc12ae348cb61d44ab3f53',
+  'package' => 'modx',
+  'class' => 'modCategory',
+  'signature' => '6d9d13f769bc3683a1b8d97a50ac0307',
+  'native_key' => 1,
+  'object' => '{"id":1,"parent":0,"category":"DefaultResourceGroup"}',
+);

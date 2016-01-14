@@ -1,0 +1,328 @@
+/*!
+* 
+* Copyright (C) 2014 MODX LLC
+* 
+* This file is part of MODX Revolution and was compiled using Grunt.
+* 
+* MODX Revolution is free software: you can redistribute it and/or modify it under the terms of the
+* GNU General Public License as published by the Free Software Foundation, either version 2 of the
+* License, or (at your option) any later version.
+* 
+* MODX Revolution is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;
+* without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+* 
+* See the GNU General Public License for more details. You should have received a copy of the GNU
+* General Public License along with MODX Revolution. If not, see <http://www.gnu.org/licenses/>.
+* 
+*/
+@import url(http://fonts.googleapis.com/css?family=Roboto:400,300,500);
+
+html {
+    color: #111;
+    font-family: "Roboto", "Lucida Grande", Helvetica, Arial, sans-serif !important;
+    font-size: 100.01%;
+    height: 100%;
+    line-height: 1.5;
+    width: 100%;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+    font-family: "Roboto", "Lucida Grande", Helvetica, Arial, sans-serif !important;
+    background: #eeeeee;
+    font-size: 75%;
+    height: 100%;
+    width: 100%;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.warning {
+    color: #821517;
+    font-weight: 700
+}
+
+.success {
+    color: #090;
+    font-weight: 700
+}
+
+#container {
+    margin: 40px auto 0;
+    width: 460px
+}
+
+#modx-login-logo {
+    /*  margin-bottom: 3px;*/
+    background: #FFF;
+    margin-left: auto;
+    margin-right: auto;
+    /*width: 50%;*/
+}
+
+#modx-login-logo img {
+    /* width: 120px;
+     margin-bottom: 5px;
+     padding: 3px;*/
+}
+
+#modx-panel-login-div {
+    /*
+    border: 1px solid #094976;*/
+    border: none;
+    margin-top: 5px;
+}
+
+img.loginCaptcha {
+    border: 1px solid #039;
+    height: 60px;
+    width: 148px
+}
+
+.loginLicense {
+    color: #565656;
+    font-size: 90%;
+    margin: 20px auto;
+    padding-left: 20px;
+    width: 50%;
+    text-align: center;
+}
+
+#modx-login-form-panel {
+    border: 1px solid #ddd
+}
+
+.x-panel-tl, .x-panel-tl .x-panel-header {
+    border: 0;
+    font-size: 14px;
+    padding: 3px 5px
+}
+
+.x-panel-ml, .x-panel-mr, .x-panel-mc {
+    background-color: transparent;
+    border: 0;
+    height: 260px;
+}
+
+.login-form-bwrap {
+    /*    background-color: #094976;
+
+    border-radius: 10px;*/
+    background: #FFF;
+    color: #eee;
+    padding: 0px;
+    box-shadow: rgba(0, 0, 0, 0.14902) 0px 1px 1px 0px, rgba(0, 0, 0, 0.09804) 0px 1px 2px 0px;
+}
+
+.login-form-bwrap-padding {
+    /*    background: #246BA6 bottom left no-repeat;
+        border-radius: 0px;*/
+    background: transparent;
+    padding-bottom: 0px
+}
+
+h2 {
+    color: #565656;
+}
+
+.x-panel-ml {
+    /*padding: 10px 20px 22px*/
+    padding: 0px 0px 0px;
+}
+
+.x-btn button {
+    font-size: 12px;
+    height: 28px !important;
+    padding: 3px 10px 0 !important;
+    margin: 0px !important;
+}
+
+.x-btn:hover {
+    background: #dfdfdf;
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #fff), color-stop(100%, #dfdfdf));
+    background: -webkit-linear-gradient(center bottom, #dfdfdf 0, #fff 100%);
+    background: -webkit-gradient(linear,, from(#dfdfdf), to(#fff));
+    background: linear-gradient(center bottom, #dfdfdf 0, #fff 100%);
+    border: 1px solid #9caf78;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#ffffff, endColorstr=#dfdfdf, GradientType=0)
+}
+
+.x-btn:hover button {
+    color: #636F4C;
+    text-shadow: 0 1px 0 #fff
+}
+
+.x-btn:active {
+    -o-box-shadow: 0 0 3px #aaa inset;
+    -webkit-box-shadow: 0 0 3px #aaa inset;
+    background-color: #fff;
+    background-image: none;
+    border-color: #CFCFCF silver #AAA;
+    box-shadow: 0 0 3px #aaa inset;
+    margin: 0 1px
+}
+
+#094976
+.modx-forgot-login {
+    float: left;
+    padding-top: 4px
+}
+
+a {
+    color: white;
+    text-decoration: none
+}
+
+a :hover {
+    text-decoration: underline
+}
+
+#modx-login-email {
+    width: 200px
+}
+
+#modx-panel-login-div {
+    /*    background-color: #094976;
+        border-radius: 3px
+    */
+    background:;
+}
+
+label {
+    cursor: pointer
+}
+
+.login-form-item {
+    float: left;
+    margin: 0
+}
+
+.login-form-item-first {
+    margin-right: 8px;
+    margin-left: 15px;
+}
+
+.login-form-element {
+    padding: 0
+}
+
+.login-form-element .x-form-text {
+    padding: 8px;
+    width: 181px;
+    background: #fff
+}
+
+.login-cb-row {
+    padding: 9px 0 10px
+}
+
+.x-form-check-wrap .x-form-cb-label {
+    color: #979797;
+    margin-left: 15px;
+}
+
+.login-cb-col {
+    float: left;
+    width: 50%
+}
+
+.modx-login-fl-link {
+    cursor: pointer;
+    height: auto !important;
+    line-height: 18px;
+    margin: 2px 0 0 2px;
+    white-space: nowrap;
+
+}
+
+.login-form-btn {
+    border: 0px solid white;
+
+    /*   -webkit-box-shadow: rgba(0, 0, 0, .2) 0 0 1px;
+       box-shadow: rgba(0, 0, 0, .2) 0 0 1px;
+       color: white;
+       filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#fcfcfc, endColorstr=#dcdcdc, GradientType=0);
+
+       border-radius: 3px;
+       font: 700 13px arial, tahoma, helvetica, sans-serif;*/
+
+    background: #3399CC;
+    color: #FFF;
+    font-size: large;
+
+    padding: 8px 18px;
+    width: 94%;
+    border-bottom: 2px solid #3160B6;
+
+}
+
+#modx-login-btn {
+    margin-left: 3%;
+}
+
+#modx-login-btn:hover {
+    background: #094976
+}
+
+#modx-fl-btn {
+    margin-left: 0
+}
+
+.x-panel-mr {
+    padding-right: 0
+}
+
+.x-panel-mc {
+    padding: 00px 0
+}
+
+#modx-login-language-select-div {
+    bottom: 0;
+    color: #565656;
+    left: 0;
+    padding: 4px;
+    position: absolute
+}
+
+#modx-login-language-select {
+    background: #eee;
+    border: 1px solid #aaa;
+    position: relative
+}
+
+.x-btn-group-mc .x-btn-group-body, .x-panel-mc .x-panel-body {
+    /* background-color: #3399CC !important;*/
+    background: #FFF;
+    border: 0px none;
+    text-align: center;
+    padding-top: 10px;
+    margin-bottom: 15px;
+    border-radius: 0px !important;
+}
+
+.circular {
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    margin: 20px;
+}
+
+.circular img {
+    /*border-radius:50%*/;
+    transition: transform 0.5s ease;
+    transform: scale(0.8);
+}
+
+.circular img:hover {
+    transform: scale(.9);
+    /*
+    transition: all 400ms cubic-bezier(0.250, 0.460, 0.450, 0.940);
+    */
+}
+
+.shadow1 {
+    -webkit-box-shadow: 3px 3px 5px 0px rgba(42, 42, 42, 0.25);
+    -moz-box-shadow: 3px 3px 5px 0px rgba(42, 42, 42, 0.25);
+    box-shadow: 3px 3px 5px 0px rgba(42, 42, 42, 0.25);
+}

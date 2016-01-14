@@ -1,0 +1,19 @@
+<?php return array (
+  'preserve_keys' => false,
+  'unique_key' => 
+  array (
+    0 => 'name',
+  ),
+  'update_object' => true,
+  'namespace' => 'smarttag',
+  'resolve' => NULL,
+  'validate' => NULL,
+  'vehicle_package' => 'transport',
+  'vehicle_class' => 'xPDOObjectVehicle',
+  'guid' => 'f33c867efc1b73512651c63f1d956f3b',
+  'package' => 'modx',
+  'class' => 'modAccessPolicy',
+  'signature' => '9819e8560510694934e4212566d667d9',
+  'native_key' => 1,
+  'object' => '{"id":1,"name":"SmartTag","description":"SmartTag\'s permissions.","parent":0,"template":0,"class":"","data":"{\\"smarttag.tools_page\\":true}","lexicon":"smarttag:permissions"}',
+);

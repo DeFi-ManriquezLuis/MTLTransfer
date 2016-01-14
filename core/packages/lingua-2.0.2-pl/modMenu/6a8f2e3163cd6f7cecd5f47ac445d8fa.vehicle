@@ -1,0 +1,50 @@
+<?php return array (
+  'preserve_keys' => true,
+  'update_object' => true,
+  'unique_key' => 'text',
+  'related_objects' => 
+  array (
+    'Action' => 
+    array (
+      'ee75e412ba492d215403f98ba269625e' => 
+      array (
+        'preserve_keys' => false,
+        'update_object' => true,
+        'unique_key' => 
+        array (
+          0 => 'namespace',
+          1 => 'controller',
+        ),
+        'class' => 'modAction',
+        'object' => '{"id":1,"namespace":"lingua","controller":"index","haslayout":1,"lang_topics":"lingua:default","assets":"","help_url":"","parent":0}',
+        'guid' => 'e91de24a7f957745ff9aa2ae843b8c31',
+        'native_key' => 1,
+        'signature' => '8413ad4ddc370ac6a010523e0247818e',
+      ),
+    ),
+  ),
+  'related_object_attributes' => 
+  array (
+    'Action' => 
+    array (
+      'preserve_keys' => false,
+      'update_object' => true,
+      'unique_key' => 
+      array (
+        0 => 'namespace',
+        1 => 'controller',
+      ),
+    ),
+  ),
+  'namespace' => 'lingua',
+  'resolve' => NULL,
+  'validate' => NULL,
+  'vehicle_package' => 'transport',
+  'vehicle_class' => 'xPDOObjectVehicle',
+  'guid' => '272aa2389c1ae4cfe38d62f0e306c69e',
+  'package' => 'modx',
+  'class' => 'modMenu',
+  'signature' => '6a8f2e3163cd6f7cecd5f47ac445d8fa',
+  'native_key' => 'lingua',
+  'object' => '{"text":"lingua","parent":"components","action":1,"description":"lingua_desc","icon":"images\\/icons\\/plugin.gif","menuindex":0,"params":"","handler":"","permissions":""}',
+);

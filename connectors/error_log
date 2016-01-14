@@ -1,0 +1,16 @@
+[06-Oct-2015 08:17:24 America/Chicago] PHP Fatal error:  Uncaught exception 'UnexpectedValueException' with message 'DirectoryIterator::__construct(/home/mexicotr/public_html/core/components/jsonformbuilder/lexicon/): failed to open dir: No such file or directory' in /home/mexicotr/public_html/core/model/modx/modlexicon.class.php:364
+Stack trace:
+#0 /home/mexicotr/public_html/core/model/modx/modlexicon.class.php(364): DirectoryIterator->__construct('/home/mexicotr/...')
+#1 /home/mexicotr/public_html/core/model/modx/processors/system/language/getlist.class.php(51): modLexicon->getLanguageList('jsonformbuilder')
+#2 /home/mexicotr/public_html/core/model/modx/processors/system/language/getlist.class.php(28): modSystemLanguageGetListProcessor->getData()
+#3 /home/mexicotr/public_html/core/model/modx/modprocessor.class.php(173): modSystemLanguageGetListProcessor->process()
+#4 /home/mexicotr/public_html/core/model/modx/modx.class.php(1701): modProcessor->run()
+#5 /home/mexicotr/public_html/core/model/modx/modconnectorresponse.class.php(131): modX->runProcessor('system/lang in /home/mexicotr/public_html/core/model/modx/modlexicon.class.php on line 364
+[06-Oct-2015 08:17:34 America/Chicago] PHP Fatal error:  Uncaught exception 'UnexpectedValueException' with message 'DirectoryIterator::__construct(/home/mexicotr/public_html/core/components/jsonformbuilder/lexicon/): failed to open dir: No such file or directory' in /home/mexicotr/public_html/core/model/modx/modlexicon.class.php:364
+Stack trace:
+#0 /home/mexicotr/public_html/core/model/modx/modlexicon.class.php(364): DirectoryIterator->__construct('/home/mexicotr/...')
+#1 /home/mexicotr/public_html/core/model/modx/processors/system/language/getlist.class.php(51): modLexicon->getLanguageList('jsonformbuilder')
+#2 /home/mexicotr/public_html/core/model/modx/processors/system/language/getlist.class.php(28): modSystemLanguageGetListProcessor->getData()
+#3 /home/mexicotr/public_html/core/model/modx/modprocessor.class.php(173): modSystemLanguageGetListProcessor->process()
+#4 /home/mexicotr/public_html/core/model/modx/modx.class.php(1701): modProcessor->run()
+#5 /home/mexicotr/public_html/core/model/modx/modconnectorresponse.class.php(131): modX->runProcessor('system/lang in /home/mexicotr/public_html/core/model/modx/modlexicon.class.php on line 364

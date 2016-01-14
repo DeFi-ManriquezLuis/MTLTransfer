@@ -1,0 +1,3 @@
+[02-Mar-2015 15:52:17] PHP Warning:  mysqli_connect() [<a href='function.mysqli-connect'>function.mysqli-connect</a>]: (42000/1102): Incorrect database name 'projects_truckload ' in /home/projects/public_html/truckload/platform/assets/custom/index.php on line 4
+[02-Mar-2015 15:52:17] PHP Warning:  mysqli_set_charset() expects parameter 1 to be mysqli, boolean given in /home/projects/public_html/truckload/platform/assets/custom/index.php on line 17
+[02-Mar-2015 15:52:17] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, boolean given in /home/projects/public_html/truckload/platform/assets/custom/index.php on line 19

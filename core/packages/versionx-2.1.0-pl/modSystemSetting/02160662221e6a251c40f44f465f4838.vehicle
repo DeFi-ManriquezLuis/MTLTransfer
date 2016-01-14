@@ -1,0 +1,16 @@
+<?php return array (
+  'unique_key' => 'key',
+  'preserve_keys' => true,
+  'update_object' => false,
+  'namespace' => 'versionx',
+  'resolve' => NULL,
+  'validate' => NULL,
+  'vehicle_package' => 'transport',
+  'vehicle_class' => 'xPDOObjectVehicle',
+  'guid' => 'd2dcf28df783f6b01298c2a5925d4b42',
+  'package' => 'modx',
+  'class' => 'modSystemSetting',
+  'signature' => '02160662221e6a251c40f44f465f4838',
+  'native_key' => 'versionx.enable.chunks',
+  'object' => '{"key":"versionx.enable.chunks","value":true,"xtype":"combo-boolean","namespace":"versionx","area":"enable","editedon":null}',
+);

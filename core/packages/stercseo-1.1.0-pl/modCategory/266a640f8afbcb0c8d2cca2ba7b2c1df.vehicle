@@ -1,0 +1,43 @@
+<?php return array (
+  'unique_key' => 'category',
+  'preserve_keys' => false,
+  'update_object' => true,
+  'related_objects' => 
+  array (
+    'Snippets' => 
+    array (
+      'e8189f31695de9801a8d9d9bb8485359' => 
+      array (
+        'preserve_keys' => false,
+        'update_object' => true,
+        'unique_key' => 'name',
+        'class' => 'modSnippet',
+        'object' => '{"id":1,"source":0,"property_preprocess":0,"name":"StercSeoSiteMap","description":"Outputs the sitemap based on the page settings made in SEO-tab","editor_type":0,"category":0,"cache_type":0,"snippet":"require_once $modx->getOption(\'stercseo.core_path\',null,$modx->getOption(\'core_path\').\'components\\/stercseo\\/\').\'model\\/stercseo\\/stercseo.class.php\';\\n$stercseo = new StercSeo($modx,$scriptProperties);\\n$allowSymlinks = (isset($allowSymlinks)) ? $allowSymlinks : 0;\\nreturn $stercseo->sitemap($modx->resource->get(\'context_key\'), \'sitemap\\/rowTpl\', \'sitemap\\/outerTpl\', $allowSymlinks);","locked":0,"properties":null,"moduleguid":"","static":0,"static_file":"","content":"require_once $modx->getOption(\'stercseo.core_path\',null,$modx->getOption(\'core_path\').\'components\\/stercseo\\/\').\'model\\/stercseo\\/stercseo.class.php\';\\n$stercseo = new StercSeo($modx,$scriptProperties);\\n$allowSymlinks = (isset($allowSymlinks)) ? $allowSymlinks : 0;\\nreturn $stercseo->sitemap($modx->resource->get(\'context_key\'), \'sitemap\\/rowTpl\', \'sitemap\\/outerTpl\', $allowSymlinks);"}',
+        'guid' => 'afaf4dd7947aacc29d750de9e1a362a7',
+        'native_key' => 1,
+        'signature' => '5bbdf1177ff8bc5256e6bed92afadfce',
+      ),
+    ),
+  ),
+  'abort_install_on_vehicle_fail' => true,
+  'related_object_attributes' => 
+  array (
+    'Snippets' => 
+    array (
+      'preserve_keys' => false,
+      'update_object' => true,
+      'unique_key' => 'name',
+    ),
+  ),
+  'namespace' => 'stercseo',
+  'resolve' => NULL,
+  'validate' => NULL,
+  'vehicle_package' => 'transport',
+  'vehicle_class' => 'xPDOObjectVehicle',
+  'guid' => '5e1c5f41d6c602163bca4ca105ae12a1',
+  'package' => 'modx',
+  'class' => 'modCategory',
+  'signature' => '266a640f8afbcb0c8d2cca2ba7b2c1df',
+  'native_key' => 1,
+  'object' => '{"id":1,"parent":0,"category":"StercSEO"}',
+);

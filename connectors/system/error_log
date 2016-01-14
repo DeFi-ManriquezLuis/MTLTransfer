@@ -1,0 +1,1 @@
+[27-Mar-2015 14:39:31] PHP Fatal error:  Call to a member function prepareSrcForThumb() on a non-object in /home/projects/public_html/truckload/platform/core/model/modx/processors/system/phpthumb.class.php on line 44

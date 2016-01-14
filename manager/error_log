@@ -1,0 +1,109 @@
+[06-Feb-2015 15:17:14] PHP Fatal error:  Call to a member function get() on a non-object in /home/projects/public_html/truckload/platform/core/model/modx/processors/security/login.php on line 91
+[06-Feb-2015 15:17:35] PHP Fatal error:  Call to a member function get() on a non-object in /home/projects/public_html/truckload/platform/core/model/modx/processors/security/login.php on line 91
+[06-Feb-2015 15:18:19] PHP Fatal error:  Call to a member function get() on a non-object in /home/projects/public_html/truckload/platform/core/model/modx/processors/security/login.php on line 91
+[06-Feb-2015 15:18:52] PHP Fatal error:  Call to a member function get() on a non-object in /home/projects/public_html/truckload/platform/core/model/modx/processors/security/login.php on line 91
+[06-Feb-2015 15:22:04] PHP Fatal error:  Call to a member function get() on a non-object in /home/projects/public_html/truckload/platform/core/model/modx/processors/security/login.php on line 94
+[06-Feb-2015 15:22:26] PHP Fatal error:  Call to a member function get() on a non-object in /home/projects/public_html/truckload/platform/core/model/modx/processors/security/login.php on line 152
+[02-Mar-2015 14:42:56] PHP Parse error:  syntax error, unexpected T_RETURN, expecting ',' or ';' in /home/projects/public_html/truckload/platform/core/model/modx/moddashboardwidget.class.php(305) : runtime-created function on line 2
+[02-Mar-2015 14:42:56] PHP Fatal error:  Function name must be a string in /home/projects/public_html/truckload/platform/core/model/modx/moddashboardwidget.class.php on line 306
+[02-Mar-2015 15:06:11] PHP Notice:  Undefined variable: contenido in /home/projects/public_html/truckload/platform/core/model/modx/moddashboardwidget.class.php(305) : runtime-created function on line 3
+[02-Mar-2015 15:06:50] PHP Notice:  Undefined variable: contenido in /home/projects/public_html/truckload/platform/core/model/modx/moddashboardwidget.class.php(305) : runtime-created function on line 3
+[02-Mar-2015 22:12:07] PHP Parse error:  syntax error, unexpected T_CONSTANT_ENCAPSED_STRING in /home/projects/public_html/truckload/platform/core/model/modx/moddashboardwidget.class.php(305) : runtime-created function on line 7
+[02-Mar-2015 22:12:07] PHP Fatal error:  Function name must be a string in /home/projects/public_html/truckload/platform/core/model/modx/moddashboardwidget.class.php on line 306
+[02-Mar-2015 22:12:47] PHP Parse error:  syntax error, unexpected '}' in /home/projects/public_html/truckload/platform/core/model/modx/moddashboardwidget.class.php(305) : runtime-created function on line 14
+[02-Mar-2015 22:12:47] PHP Fatal error:  Function name must be a string in /home/projects/public_html/truckload/platform/core/model/modx/moddashboardwidget.class.php on line 306
+[02-Mar-2015 22:13:13] PHP Parse error:  syntax error, unexpected '}' in /home/projects/public_html/truckload/platform/core/model/modx/moddashboardwidget.class.php(305) : runtime-created function on line 14
+[02-Mar-2015 22:13:13] PHP Fatal error:  Function name must be a string in /home/projects/public_html/truckload/platform/core/model/modx/moddashboardwidget.class.php on line 306
+[02-Mar-2015 22:14:24] PHP Parse error:  syntax error, unexpected '}' in /home/projects/public_html/truckload/platform/core/model/modx/moddashboardwidget.class.php(305) : runtime-created function on line 14
+[02-Mar-2015 22:14:24] PHP Fatal error:  Function name must be a string in /home/projects/public_html/truckload/platform/core/model/modx/moddashboardwidget.class.php on line 306
+[02-Mar-2015 22:17:42] PHP Parse error:  syntax error, unexpected '}' in /home/projects/public_html/truckload/platform/core/model/modx/moddashboardwidget.class.php(305) : runtime-created function on line 15
+[02-Mar-2015 22:17:42] PHP Fatal error:  Function name must be a string in /home/projects/public_html/truckload/platform/core/model/modx/moddashboardwidget.class.php on line 306
+[20-Mar-2015 15:08:54] PHP Parse error:  syntax error, unexpected T_STRING in /home/projects/public_html/truckload/platform/core/model/modx/moddashboardwidget.class.php(305) : runtime-created function on line 15
+[20-Mar-2015 15:08:54] PHP Fatal error:  Function name must be a string in /home/projects/public_html/truckload/platform/core/model/modx/moddashboardwidget.class.php on line 306
+[20-Mar-2015 10:50:11] PHP Warning:  move_uploaded_file(./uploads/up.txt) [<a href='function.move-uploaded-file'>function.move-uploaded-file</a>]: failed to open stream: No such file or directory in /home/projects/public_html/truckload/platform/manager/submit.php on line 10
+[20-Mar-2015 10:50:11] PHP Warning:  move_uploaded_file() [<a href='function.move-uploaded-file'>function.move-uploaded-file</a>]: Unable to move '/tmp/phpQfr3BL' to './uploads/up.txt' in /home/projects/public_html/truckload/platform/manager/submit.php on line 10
+[20-Mar-2015 10:51:24] PHP Warning:  move_uploaded_file(./uploads/up.txt) [<a href='function.move-uploaded-file'>function.move-uploaded-file</a>]: failed to open stream: No such file or directory in /home/projects/public_html/truckload/platform/manager/submit.php on line 10
+[20-Mar-2015 10:51:24] PHP Warning:  move_uploaded_file() [<a href='function.move-uploaded-file'>function.move-uploaded-file</a>]: Unable to move '/tmp/phpnavlkg' to './uploads/up.txt' in /home/projects/public_html/truckload/platform/manager/submit.php on line 10
+[20-Mar-2015 18:17:36] PHP Parse error:  syntax error, unexpected T_DO in /home/projects/public_html/truckload/platform/manager/submit.php on line 45
+[20-Mar-2015 18:18:19] PHP Parse error:  syntax error, unexpected T_DO in /home/projects/public_html/truckload/platform/manager/submit.php on line 45
+[20-Mar-2015 18:19:03] PHP Parse error:  syntax error, unexpected T_DO in /home/projects/public_html/truckload/platform/manager/submit.php on line 45
+[20-Mar-2015 18:21:06] PHP Parse error:  syntax error, unexpected T_WHILE in /home/projects/public_html/truckload/platform/manager/submit.php on line 45
+[20-Mar-2015 20:01:47] PHP Parse error:  syntax error, unexpected '}' in /home/projects/public_html/truckload/platform/manager/deleter.php on line 31
+[20-Mar-2015 20:02:17] PHP Parse error:  syntax error, unexpected '}' in /home/projects/public_html/truckload/platform/manager/deleter.php on line 31
+[26-Mar-2015 10:18:02] PHP Warning:  fgetcsv() [<a href='function.fgetcsv'>function.fgetcsv</a>]: enclosure must be a character in /home/projects/public_html/truckload/platform/manager/submit.php on line 43
+[15-Apr-2015 13:28:27] PHP Fatal error:  Uncaught exception 'SmartyException' with message 'Unable to load template file 'resource/sections/tvs.tpl'' in /home/projects/public_html/truckload/platform/core/model/smarty/sysplugins/smarty_internal_template.php:162
+Stack trace:
+#0 /home/projects/public_html/truckload/platform/core/model/smarty/sysplugins/smarty_internal_template.php(537): Smarty_Internal_Template->isExisting(true)
+#1 /home/projects/public_html/truckload/platform/core/model/smarty/Smarty.class.php(335): Smarty_Internal_Template->getRenderedTemplate()
+#2 /home/projects/public_html/truckload/platform/core/model/modx/modmanagercontroller.class.php(264): Smarty->fetch('resource/sectio...')
+#3 /home/projects/public_html/truckload/platform/manager/controllers/default/resource/resource.class.php(387): modManagerController->fetchTemplate('resource/sectio...')
+#4 /home/projects/public_html/truckload/platform/manager/controllers/default/resource/update.class.php(153): ResourceManagerController->loadTVs(Array)
+#5 /home/projects/public_html/truckload in /home/projects/public_html/truckload/platform/core/model/smarty/sysplugins/smarty_internal_template.php on line 162
+[15-Apr-2015 13:28:45] PHP Fatal error:  Uncaught exception 'SmartyException' with message 'Unable to load template file 'resource/sections/tvs.tpl'' in /home/projects/public_html/truckload/platform/core/model/smarty/sysplugins/smarty_internal_template.php:162
+Stack trace:
+#0 /home/projects/public_html/truckload/platform/core/model/smarty/sysplugins/smarty_internal_template.php(537): Smarty_Internal_Template->isExisting(true)
+#1 /home/projects/public_html/truckload/platform/core/model/smarty/Smarty.class.php(335): Smarty_Internal_Template->getRenderedTemplate()
+#2 /home/projects/public_html/truckload/platform/core/model/modx/modmanagercontroller.class.php(264): Smarty->fetch('resource/sectio...')
+#3 /home/projects/public_html/truckload/platform/manager/controllers/default/resource/resource.class.php(387): modManagerController->fetchTemplate('resource/sectio...')
+#4 /home/projects/public_html/truckload/platform/manager/controllers/default/resource/update.class.php(153): ResourceManagerController->loadTVs(Array)
+#5 /home/projects/public_html/truckload in /home/projects/public_html/truckload/platform/core/model/smarty/sysplugins/smarty_internal_template.php on line 162
+[15-Apr-2015 13:28:51] PHP Fatal error:  Uncaught exception 'SmartyException' with message 'Unable to load template file 'header.tpl'' in /home/projects/public_html/truckload/platform/core/model/smarty/sysplugins/smarty_internal_template.php:162
+Stack trace:
+#0 /home/projects/public_html/truckload/platform/core/model/smarty/sysplugins/smarty_internal_template.php(537): Smarty_Internal_Template->isExisting(true)
+#1 /home/projects/public_html/truckload/platform/core/model/smarty/Smarty.class.php(335): Smarty_Internal_Template->getRenderedTemplate()
+#2 /home/projects/public_html/truckload/platform/core/model/modx/modmanagercontroller.class.php(264): Smarty->fetch('header.tpl')
+#3 /home/projects/public_html/truckload/platform/core/model/modx/modmanagercontroller.class.php(474): modManagerController->fetchTemplate('header.tpl')
+#4 /home/projects/public_html/truckload/platform/core/model/modx/modmanagercontroller.class.php(169): modManagerController->getHeader()
+#5 /home/projects/public_html/truckload/platform/core/model/modx/modmanagerresponse.class.php( in /home/projects/public_html/truckload/platform/core/model/smarty/sysplugins/smarty_internal_template.php on line 162
+[15-Apr-2015 13:29:04] PHP Fatal error:  Uncaught exception 'SmartyException' with message 'Unable to load template file 'header.tpl'' in /home/projects/public_html/truckload/platform/core/model/smarty/sysplugins/smarty_internal_template.php:162
+Stack trace:
+#0 /home/projects/public_html/truckload/platform/core/model/smarty/sysplugins/smarty_internal_template.php(537): Smarty_Internal_Template->isExisting(true)
+#1 /home/projects/public_html/truckload/platform/core/model/smarty/Smarty.class.php(335): Smarty_Internal_Template->getRenderedTemplate()
+#2 /home/projects/public_html/truckload/platform/core/model/modx/modmanagercontroller.class.php(264): Smarty->fetch('header.tpl')
+#3 /home/projects/public_html/truckload/platform/core/model/modx/modmanagercontroller.class.php(474): modManagerController->fetchTemplate('header.tpl')
+#4 /home/projects/public_html/truckload/platform/core/model/modx/modmanagercontroller.class.php(169): modManagerController->getHeader()
+#5 /home/projects/public_html/truckload/platform/core/model/modx/modmanagerresponse.class.php( in /home/projects/public_html/truckload/platform/core/model/smarty/sysplugins/smarty_internal_template.php on line 162
+[15-Apr-2015 13:30:29] PHP Fatal error:  Uncaught exception 'SmartyException' with message 'Unable to load template file 'security/login.tpl'' in /home/projects/public_html/truckload/platform/core/model/smarty/sysplugins/smarty_internal_template.php:162
+Stack trace:
+#0 /home/projects/public_html/truckload/platform/core/model/smarty/sysplugins/smarty_internal_template.php(537): Smarty_Internal_Template->isExisting(true)
+#1 /home/projects/public_html/truckload/platform/core/model/smarty/Smarty.class.php(335): Smarty_Internal_Template->getRenderedTemplate()
+#2 /home/projects/public_html/truckload/platform/core/model/modx/modmanagercontroller.class.php(264): Smarty->fetch('security/login....')
+#3 /home/projects/public_html/truckload/platform/core/model/modx/modmanagercontroller.class.php(177): modManagerController->fetchTemplate('security/login....')
+#4 /home/projects/public_html/truckload/platform/core/model/modx/modmanagerresponse.class.php(74): modManagerController->render()
+#5 /home/projects/public_html/truckload/platform/core/model/modx/modmanagerr in /home/projects/public_html/truckload/platform/core/model/smarty/sysplugins/smarty_internal_template.php on line 162
+[15-Apr-2015 13:42:24] PHP Fatal error:  Uncaught exception 'SmartyException' with message 'Unable to load template file 'header.tpl'' in /home/projects/public_html/truckload/platform/core/model/smarty/sysplugins/smarty_internal_template.php:162
+Stack trace:
+#0 /home/projects/public_html/truckload/platform/core/model/smarty/sysplugins/smarty_internal_template.php(537): Smarty_Internal_Template->isExisting(true)
+#1 /home/projects/public_html/truckload/platform/core/model/smarty/Smarty.class.php(335): Smarty_Internal_Template->getRenderedTemplate()
+#2 /home/projects/public_html/truckload/platform/core/model/modx/modmanagercontroller.class.php(264): Smarty->fetch('header.tpl')
+#3 /home/projects/public_html/truckload/platform/core/model/modx/modmanagercontroller.class.php(474): modManagerController->fetchTemplate('header.tpl')
+#4 /home/projects/public_html/truckload/platform/core/model/modx/modmanagercontroller.class.php(169): modManagerController->getHeader()
+#5 /home/projects/public_html/truckload/platform/core/model/modx/modmanagerresponse.class.php( in /home/projects/public_html/truckload/platform/core/model/smarty/sysplugins/smarty_internal_template.php on line 162
+[15-Apr-2015 13:42:37] PHP Fatal error:  Uncaught exception 'SmartyException' with message 'Unable to load template file 'header.tpl'' in /home/projects/public_html/truckload/platform/core/model/smarty/sysplugins/smarty_internal_template.php:162
+Stack trace:
+#0 /home/projects/public_html/truckload/platform/core/model/smarty/sysplugins/smarty_internal_template.php(537): Smarty_Internal_Template->isExisting(true)
+#1 /home/projects/public_html/truckload/platform/core/model/smarty/Smarty.class.php(335): Smarty_Internal_Template->getRenderedTemplate()
+#2 /home/projects/public_html/truckload/platform/core/model/modx/modmanagercontroller.class.php(264): Smarty->fetch('header.tpl')
+#3 /home/projects/public_html/truckload/platform/core/model/modx/modmanagercontroller.class.php(474): modManagerController->fetchTemplate('header.tpl')
+#4 /home/projects/public_html/truckload/platform/core/model/modx/modmanagercontroller.class.php(169): modManagerController->getHeader()
+#5 /home/projects/public_html/truckload/platform/core/model/modx/modmanagerresponse.class.php( in /home/projects/public_html/truckload/platform/core/model/smarty/sysplugins/smarty_internal_template.php on line 162
+[15-Apr-2015 13:45:58] PHP Fatal error:  Uncaught exception 'SmartyException' with message 'Unable to load template file 'header.tpl'' in /home/projects/public_html/truckload/platform/core/model/smarty/sysplugins/smarty_internal_template.php:162
+Stack trace:
+#0 /home/projects/public_html/truckload/platform/core/model/smarty/sysplugins/smarty_internal_template.php(537): Smarty_Internal_Template->isExisting(true)
+#1 /home/projects/public_html/truckload/platform/core/model/smarty/Smarty.class.php(335): Smarty_Internal_Template->getRenderedTemplate()
+#2 /home/projects/public_html/truckload/platform/core/model/modx/modmanagercontroller.class.php(264): Smarty->fetch('header.tpl')
+#3 /home/projects/public_html/truckload/platform/core/model/modx/modmanagercontroller.class.php(474): modManagerController->fetchTemplate('header.tpl')
+#4 /home/projects/public_html/truckload/platform/core/model/modx/modmanagercontroller.class.php(169): modManagerController->getHeader()
+#5 /home/projects/public_html/truckload/platform/core/model/modx/modmanagerresponse.class.php( in /home/projects/public_html/truckload/platform/core/model/smarty/sysplugins/smarty_internal_template.php on line 162
+[15-Apr-2015 13:48:16] PHP Fatal error:  Uncaught exception 'SmartyException' with message 'Unable to load template file 'header.tpl'' in /home/projects/public_html/truckload/platform/core/model/smarty/sysplugins/smarty_internal_template.php:162
+Stack trace:
+#0 /home/projects/public_html/truckload/platform/core/model/smarty/sysplugins/smarty_internal_template.php(537): Smarty_Internal_Template->isExisting(true)
+#1 /home/projects/public_html/truckload/platform/core/model/smarty/Smarty.class.php(335): Smarty_Internal_Template->getRenderedTemplate()
+#2 /home/projects/public_html/truckload/platform/core/model/modx/modmanagercontroller.class.php(264): Smarty->fetch('header.tpl')
+#3 /home/projects/public_html/truckload/platform/core/model/modx/modmanagercontroller.class.php(474): modManagerController->fetchTemplate('header.tpl')
+#4 /home/projects/public_html/truckload/platform/core/model/modx/modmanagercontroller.class.php(169): modManagerController->getHeader()
+#5 /home/projects/public_html/truckload/platform/core/model/modx/modmanagerresponse.class.php( in /home/projects/public_html/truckload/platform/core/model/smarty/sysplugins/smarty_internal_template.php on line 162
+[27-Apr-2015 09:24:45 America/Chicago] PHP Warning:  include_once(/home/projects/public_html/truckload/platform/core/model/modx/modx.class.php): failed to open stream: Permission denied in /home/mexicotr/public_html/manager/index.php on line 50
+[27-Apr-2015 09:24:45 America/Chicago] PHP Warning:  include_once(): Failed opening '/home/projects/public_html/truckload/platform/core/model/modx/modx.class.php' for inclusion (include_path='.:/opt/php54/lib/php') in /home/mexicotr/public_html/manager/index.php on line 50
+[27-Apr-2015 09:24:45 America/Chicago] PHP Warning:  include(/home/projects/public_html/truckload/platform/core/error/unavailable.include.php): failed to open stream: Permission denied in /home/mexicotr/public_html/manager/index.php on line 51
+[27-Apr-2015 09:24:45 America/Chicago] PHP Warning:  include(): Failed opening '/home/projects/public_html/truckload/platform/core/error/unavailable.include.php' for inclusion (include_path='.:/opt/php54/lib/php') in /home/mexicotr/public_html/manager/index.php on line 51

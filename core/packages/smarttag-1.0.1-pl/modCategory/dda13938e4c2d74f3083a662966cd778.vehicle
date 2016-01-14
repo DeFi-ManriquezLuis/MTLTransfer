@@ -1,0 +1,264 @@
+<?php return array (
+  'unique_key' => 'category',
+  'preserve_keys' => false,
+  'update_object' => true,
+  'related_objects' => 
+  array (
+    'Chunks' => 
+    array (
+      '11277170177adb4a9fad02b4a13d5eea' => 
+      array (
+        'preserve_keys' => false,
+        'update_object' => true,
+        'unique_key' => 'name',
+        'class' => 'modChunk',
+        'object' => '{"id":0,"source":0,"property_preprocess":0,"name":"smarttagtags.item","description":"Chunk for item template of tag list","editor_type":0,"category":0,"cache_type":0,"snippet":"<li>[[+smarttag.tag]] ([[+smarttag.count]])<\\/li>","locked":0,"properties":"","static":0,"static_file":"","content":"<li>[[+smarttag.tag]] ([[+smarttag.count]])<\\/li>"}',
+        'guid' => '35c0edf0fab433dae9f204fe0dfdbe6e',
+        'native_key' => 0,
+        'signature' => 'c1f98c2e571faa16efd70fd01d7d2c1d',
+      ),
+      'e0be3f3567f13993c620f388bee579f0' => 
+      array (
+        'preserve_keys' => false,
+        'update_object' => true,
+        'unique_key' => 'name',
+        'class' => 'modChunk',
+        'object' => '{"id":1,"source":0,"property_preprocess":0,"name":"smarttagtags.wrapper","description":"Chunk for wrapper template of tag list","editor_type":0,"category":0,"cache_type":0,"snippet":"<ul class=\\"smarttag-tags-wrapper\\">\\r\\n    [[+smarttag.tags]]\\r\\n<\\/ul>","locked":0,"properties":"","static":0,"static_file":"","content":"<ul class=\\"smarttag-tags-wrapper\\">\\r\\n    [[+smarttag.tags]]\\r\\n<\\/ul>"}',
+        'guid' => '530f0a069351f32377043122b6edb089',
+        'native_key' => 1,
+        'signature' => '9bf68c778a6a2e2a884806eeb539baca',
+      ),
+    ),
+    'Snippets' => 
+    array (
+      '2122d96abe89ed86bdc5df65df1e81ab' => 
+      array (
+        'preserve_keys' => false,
+        'update_object' => true,
+        'unique_key' => 'name',
+        'class' => 'modSnippet',
+        'object' => '{"id":0,"source":0,"property_preprocess":1,"name":"smarttagTags","description":"List tags","editor_type":0,"category":0,"cache_type":0,"snippet":"\\/**\\r\\n * SmartTag\\r\\n *\\r\\n * Copyright 2014 by goldsky <goldsky@virtudraft.com>\\r\\n *\\r\\n * This file is part of SmartTag, a MODX\'s custom Template Variable for tagging\\r\\n *\\r\\n * SmartTag is free software; you can redistribute it and\\/or modify it under the\\r\\n * terms of the GNU General Public License as published by the Free Software\\r\\n * Foundation version 3.\\r\\n *\\r\\n * SmartTag is distributed in the hope that it will be useful, but WITHOUT ANY\\r\\n * WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR\\r\\n * A PARTICULAR PURPOSE. See the GNU General Public License for more details.\\r\\n *\\r\\n * You should have received a copy of the GNU General Public License along with\\r\\n * SmartTag; if not, write to the Free Software Foundation, Inc., 59 Temple Place,\\r\\n * Suite 330, Boston, MA 02111-1307 USA\\r\\n *\\r\\n * @package smarttag\\r\\n * @subpackage snippet\\r\\n *\\/\\r\\n$docIds = $modx->getOption(\'docIds\', $scriptProperties);\\r\\nif (!empty($docIds)) {\\r\\n    $docIds = array_map(\'trim\', @explode(\',\', $docIds));\\r\\n}\\r\\n$parentIds = $modx->getOption(\'parentIds\', $scriptProperties);\\r\\nif (!empty($parentIds)) {\\r\\n    $parentIds = array_map(\'trim\', @explode(\',\', $parentIds));\\r\\n}\\r\\n$includeHiddenDocs = $modx->getOption(\'includeHiddenDocs\', $scriptProperties);\\r\\n\\r\\n\\/\\/ to prevent empty inputs from above properties where meant to be existed\\r\\n$allTags = $modx->getOption(\'allTags\', $scriptProperties);\\r\\nif (empty($docIds) && empty($parentIds) && empty($allTags)) {\\r\\n    return;\\r\\n}\\r\\n\\r\\n$includeEmptyTags = intval($modx->getOption(\'includeEmptyTags\', $scriptProperties));\\r\\n$tvNames = $modx->getOption(\'tvNames\', $scriptProperties);\\r\\n$limit = intval($modx->getOption(\'limit\', $scriptProperties, 10));\\r\\n$sort = $modx->getOption(\'sort\', $scriptProperties, \'count desc,tag asc\');\\r\\n$tplWrapper = $modx->getOption(\'tplWrapper\', $scriptProperties, \'smarttagtags.wrapper\');\\r\\n$tplItem = $modx->getOption(\'tplItem\', $scriptProperties, \'smarttagtags.item\');\\r\\n$phsPrefix = $modx->getOption(\'phsPrefix\', $scriptProperties, \'smarttag\');\\r\\n\\r\\n$smartTag = $modx->getService(\'smarttag\', \'SmartTag\', MODX_CORE_PATH . \'components\\/smarttag\\/model\\/\');\\r\\n\\r\\nif (!($smartTag instanceof SmartTag)) {\\r\\n    return \'\';\\r\\n}\\r\\n\\r\\n$c = $modx->newQuery(\'smarttagTags\');\\r\\n$c->distinct();\\r\\n$c->select(array(\\r\\n    \'smarttagTags.*\',\\r\\n    \'count\' => \\"(\\" .\\r\\n    \\"SELECT COUNT(*) FROM {$modx->getTableName(\'smarttagTagresources\')} AS smarttagTagresources \\" .\\r\\n    (!empty($docIds) || !empty($parentIds) ? \\"LEFT JOIN {$modx->getTableName(\'modResource\')} as modResource ON modResource.id = smarttagTagresources.resource_id \\" : \'\' ) .\\r\\n    \\"WHERE (smarttagTagresources.tag_id = smarttagTags.id \\" .\\r\\n    (!empty($docIds) ? \\"AND smarttagTagresources.resource_id IN (\\" . @implode(\',\', $docIds) . \\") \\" : \'\') .\\r\\n    (!empty($parentIds) ? \\"AND modResource.parent IN (\\" . @implode(\',\', $parentIds) . \\") \\" : \'\') .\\r\\n    (!empty($parentIds) || !empty($parentIds) ? \\"AND modResource.published = 1 AND modResource.deleted != 1 \\" : \'\') .\\r\\n    (empty($includeHiddenDocs) ? \\"AND modResource.hidemenu != 1 \\" : \'\') .\\r\\n    \\")) \\",\\r\\n));\\r\\nif (!empty($docIds) || !empty($parentIds)) {\\r\\n    $c->leftJoin(\'smarttagTagresources\', \'Tagresources\', \'Tagresources.tag_id=smarttagTags.id\');\\r\\n    $c->leftJoin(\'modResource\', \'Resource\', \'Tagresources.resource_id=Resource.id\');\\r\\n    $c->where(array(\\r\\n        \'Resource.published:=\' => 1,\\r\\n        \'Resource.deleted:!=\' => 1,\\r\\n    ));\\r\\n    if (empty($includeHiddenDocs)) {\\r\\n        $c->where(array(\\r\\n            \'Resource.hidemenu:!=\' => 1,\\r\\n        ));\\r\\n    }\\r\\n    if (!empty($tvNames)) {\\r\\n        $tvNames = @explode(\',\', $tvNames);\\r\\n        $c->leftJoin(\'modTemplateVar\', \'TemplateVar\', \'TemplateVar.id=Tagresources.tmplvar_id\');\\r\\n        $c->where(array(\\r\\n            \'TemplateVar.name:IN\' => $tvNames,\\r\\n        ));\\r\\n    }\\r\\n}\\r\\nif (!empty($docIds)) {\\r\\n    $c->where(array(\\r\\n        \'Tagresources.resource_id:IN\' => $docIds\\r\\n    ));\\r\\n}\\r\\nif (!empty($parentIds)) {\\r\\n    $c->where(array(\\r\\n        \'Resource.parent:IN\' => $parentIds\\r\\n    ));\\r\\n}\\r\\n$sorts = @explode(\',\', $sort);\\r\\nforeach ($sorts as $v) {\\r\\n    $sorter = @explode(\' \', strtolower($v));\\r\\n    $sortBy = $sorter[0];\\r\\n    $sortDir = isset($sorter[1]) && in_array($sorter[1], array(\'asc\', \'desc\')) ? $sorter[1] : \'desc\';\\r\\n    $c->sortby($sortBy, $sortDir);\\r\\n}\\r\\nif (empty($includeEmptyTags)) {\\r\\n    $c->having(\'count > 0\');\\r\\n}\\r\\n\\r\\nif ($limit) {\\r\\n    $c->limit($limit);\\r\\n}\\r\\n\\r\\n$collection = $modx->getCollection(\'smarttagTags\', $c);\\r\\n$output = \'\';\\r\\n$outputArray = array();\\r\\n$wrapper = array(\\r\\n    \'tags\' => null\\r\\n);\\r\\n$toArray = $modx->getOption(\'toArray\', $scriptProperties);\\r\\n\\r\\nif ($collection) {\\r\\n    $items = array();\\r\\n    foreach ($collection as $item) {\\r\\n        $phs = $smartTag->setPlaceholders($item->toArray(), $phsPrefix);\\r\\n        if ($toArray) {\\r\\n            $items[] = $phs;\\r\\n        } else {\\r\\n            $items[] = $smartTag->parseTpl($tplItem, $phs);\\r\\n        }\\r\\n    }\\r\\n    if ($toArray) {\\r\\n        $wrapper[\'tags\'] = $items;\\r\\n        $phs = $smartTag->setPlaceholders($wrapper, $phsPrefix);\\r\\n        $outputArray = array(\\r\\n            \'properties\' => $scriptProperties,\\r\\n            \'output\' => $phs,\\r\\n        );\\r\\n        $output = \'<pre>\' . print_r($outputArray, 1) . \'<\\/pre>\';\\r\\n    } else {\\r\\n        $wrapper[\'tags\'] = @implode(\\"\\\\n\\", $items);\\r\\n        $phs = $smartTag->setPlaceholders($wrapper, $phsPrefix);\\r\\n        $output = $smartTag->parseTpl($tplWrapper, $phs);\\r\\n    }\\r\\n}\\r\\n$toPlaceholder = $modx->getOption(\'toPlaceholder\', $scriptProperties);\\r\\nif (!empty($toPlaceholder)) {\\r\\n    $modx->setPlaceholder($toPlaceholder, $output);\\r\\n    return;\\r\\n}\\r\\nreturn $output;","locked":0,"properties":"a:9:{s:6:\\"docIds\\";a:7:{s:4:\\"name\\";s:6:\\"docIds\\";s:4:\\"desc\\";s:15:\\"smarttag.docIds\\";s:4:\\"type\\";s:9:\\"textfield\\";s:7:\\"options\\";s:0:\\"\\";s:5:\\"value\\";s:0:\\"\\";s:7:\\"lexicon\\";s:13:\\"smarttag:prop\\";s:4:\\"area\\";s:0:\\"\\";}s:16:\\"includeEmptyTags\\";a:7:{s:4:\\"name\\";s:16:\\"includeEmptyTags\\";s:4:\\"desc\\";s:25:\\"smarttag.includeEmptyTags\\";s:4:\\"type\\";s:9:\\"textfield\\";s:7:\\"options\\";s:0:\\"\\";s:5:\\"value\\";s:0:\\"\\";s:7:\\"lexicon\\";s:13:\\"smarttag:prop\\";s:4:\\"area\\";s:0:\\"\\";}s:17:\\"includeHiddenDocs\\";a:7:{s:4:\\"name\\";s:17:\\"includeHiddenDocs\\";s:4:\\"desc\\";s:26:\\"smarttag.includeHiddenDocs\\";s:4:\\"type\\";s:9:\\"textfield\\";s:7:\\"options\\";s:0:\\"\\";s:5:\\"value\\";s:0:\\"\\";s:7:\\"lexicon\\";s:13:\\"smarttag:prop\\";s:4:\\"area\\";s:0:\\"\\";}s:5:\\"limit\\";a:7:{s:4:\\"name\\";s:5:\\"limit\\";s:4:\\"desc\\";s:14:\\"smarttag.limit\\";s:4:\\"type\\";s:11:\\"numberfield\\";s:7:\\"options\\";s:0:\\"\\";s:5:\\"value\\";s:2:\\"10\\";s:7:\\"lexicon\\";s:13:\\"smarttag:prop\\";s:4:\\"area\\";s:0:\\"\\";}s:9:\\"parentIds\\";a:7:{s:4:\\"name\\";s:9:\\"parentIds\\";s:4:\\"desc\\";s:18:\\"smarttag.parentIds\\";s:4:\\"type\\";s:9:\\"textfield\\";s:7:\\"options\\";s:0:\\"\\";s:5:\\"value\\";s:0:\\"\\";s:7:\\"lexicon\\";s:13:\\"smarttag:prop\\";s:4:\\"area\\";s:0:\\"\\";}s:9:\\"phsPrefix\\";a:7:{s:4:\\"name\\";s:9:\\"phsPrefix\\";s:4:\\"desc\\";s:18:\\"smarttag.phsPrefix\\";s:4:\\"type\\";s:9:\\"textfield\\";s:7:\\"options\\";s:0:\\"\\";s:5:\\"value\\";s:8:\\"smarttag\\";s:7:\\"lexicon\\";s:13:\\"smarttag:prop\\";s:4:\\"area\\";s:0:\\"\\";}s:4:\\"sort\\";a:7:{s:4:\\"name\\";s:4:\\"sort\\";s:4:\\"desc\\";s:13:\\"smarttag.sort\\";s:4:\\"type\\";s:9:\\"textfield\\";s:7:\\"options\\";s:0:\\"\\";s:5:\\"value\\";s:18:\\"count desc,tag asc\\";s:7:\\"lexicon\\";s:12:\\"smarttag:pop\\";s:4:\\"area\\";s:0:\\"\\";}s:7:\\"tplItem\\";a:7:{s:4:\\"name\\";s:7:\\"tplItem\\";s:4:\\"desc\\";s:16:\\"smarttag.tplItem\\";s:4:\\"type\\";s:9:\\"textfield\\";s:7:\\"options\\";s:0:\\"\\";s:5:\\"value\\";s:17:\\"smarttagtags.item\\";s:7:\\"lexicon\\";s:13:\\"smarttag:prop\\";s:4:\\"area\\";s:0:\\"\\";}s:10:\\"tplWrapper\\";a:7:{s:4:\\"name\\";s:10:\\"tplWrapper\\";s:4:\\"desc\\";s:19:\\"smarttag.tplWrapper\\";s:4:\\"type\\";s:9:\\"textfield\\";s:7:\\"options\\";s:0:\\"\\";s:5:\\"value\\";s:20:\\"smarttagtags.wrapper\\";s:7:\\"lexicon\\";s:13:\\"smarttag:prop\\";s:4:\\"area\\";s:0:\\"\\";}}","moduleguid":"","static":0,"static_file":"","content":"\\/**\\r\\n * SmartTag\\r\\n *\\r\\n * Copyright 2014 by goldsky <goldsky@virtudraft.com>\\r\\n *\\r\\n * This file is part of SmartTag, a MODX\'s custom Template Variable for tagging\\r\\n *\\r\\n * SmartTag is free software; you can redistribute it and\\/or modify it under the\\r\\n * terms of the GNU General Public License as published by the Free Software\\r\\n * Foundation version 3.\\r\\n *\\r\\n * SmartTag is distributed in the hope that it will be useful, but WITHOUT ANY\\r\\n * WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR\\r\\n * A PARTICULAR PURPOSE. See the GNU General Public License for more details.\\r\\n *\\r\\n * You should have received a copy of the GNU General Public License along with\\r\\n * SmartTag; if not, write to the Free Software Foundation, Inc., 59 Temple Place,\\r\\n * Suite 330, Boston, MA 02111-1307 USA\\r\\n *\\r\\n * @package smarttag\\r\\n * @subpackage snippet\\r\\n *\\/\\r\\n$docIds = $modx->getOption(\'docIds\', $scriptProperties);\\r\\nif (!empty($docIds)) {\\r\\n    $docIds = array_map(\'trim\', @explode(\',\', $docIds));\\r\\n}\\r\\n$parentIds = $modx->getOption(\'parentIds\', $scriptProperties);\\r\\nif (!empty($parentIds)) {\\r\\n    $parentIds = array_map(\'trim\', @explode(\',\', $parentIds));\\r\\n}\\r\\n$includeHiddenDocs = $modx->getOption(\'includeHiddenDocs\', $scriptProperties);\\r\\n\\r\\n\\/\\/ to prevent empty inputs from above properties where meant to be existed\\r\\n$allTags = $modx->getOption(\'allTags\', $scriptProperties);\\r\\nif (empty($docIds) && empty($parentIds) && empty($allTags)) {\\r\\n    return;\\r\\n}\\r\\n\\r\\n$includeEmptyTags = intval($modx->getOption(\'includeEmptyTags\', $scriptProperties));\\r\\n$tvNames = $modx->getOption(\'tvNames\', $scriptProperties);\\r\\n$limit = intval($modx->getOption(\'limit\', $scriptProperties, 10));\\r\\n$sort = $modx->getOption(\'sort\', $scriptProperties, \'count desc,tag asc\');\\r\\n$tplWrapper = $modx->getOption(\'tplWrapper\', $scriptProperties, \'smarttagtags.wrapper\');\\r\\n$tplItem = $modx->getOption(\'tplItem\', $scriptProperties, \'smarttagtags.item\');\\r\\n$phsPrefix = $modx->getOption(\'phsPrefix\', $scriptProperties, \'smarttag\');\\r\\n\\r\\n$smartTag = $modx->getService(\'smarttag\', \'SmartTag\', MODX_CORE_PATH . \'components\\/smarttag\\/model\\/\');\\r\\n\\r\\nif (!($smartTag instanceof SmartTag)) {\\r\\n    return \'\';\\r\\n}\\r\\n\\r\\n$c = $modx->newQuery(\'smarttagTags\');\\r\\n$c->distinct();\\r\\n$c->select(array(\\r\\n    \'smarttagTags.*\',\\r\\n    \'count\' => \\"(\\" .\\r\\n    \\"SELECT COUNT(*) FROM {$modx->getTableName(\'smarttagTagresources\')} AS smarttagTagresources \\" .\\r\\n    (!empty($docIds) || !empty($parentIds) ? \\"LEFT JOIN {$modx->getTableName(\'modResource\')} as modResource ON modResource.id = smarttagTagresources.resource_id \\" : \'\' ) .\\r\\n    \\"WHERE (smarttagTagresources.tag_id = smarttagTags.id \\" .\\r\\n    (!empty($docIds) ? \\"AND smarttagTagresources.resource_id IN (\\" . @implode(\',\', $docIds) . \\") \\" : \'\') .\\r\\n    (!empty($parentIds) ? \\"AND modResource.parent IN (\\" . @implode(\',\', $parentIds) . \\") \\" : \'\') .\\r\\n    (!empty($parentIds) || !empty($parentIds) ? \\"AND modResource.published = 1 AND modResource.deleted != 1 \\" : \'\') .\\r\\n    (empty($includeHiddenDocs) ? \\"AND modResource.hidemenu != 1 \\" : \'\') .\\r\\n    \\")) \\",\\r\\n));\\r\\nif (!empty($docIds) || !empty($parentIds)) {\\r\\n    $c->leftJoin(\'smarttagTagresources\', \'Tagresources\', \'Tagresources.tag_id=smarttagTags.id\');\\r\\n    $c->leftJoin(\'modResource\', \'Resource\', \'Tagresources.resource_id=Resource.id\');\\r\\n    $c->where(array(\\r\\n        \'Resource.published:=\' => 1,\\r\\n        \'Resource.deleted:!=\' => 1,\\r\\n    ));\\r\\n    if (empty($includeHiddenDocs)) {\\r\\n        $c->where(array(\\r\\n            \'Resource.hidemenu:!=\' => 1,\\r\\n        ));\\r\\n    }\\r\\n    if (!empty($tvNames)) {\\r\\n        $tvNames = @explode(\',\', $tvNames);\\r\\n        $c->leftJoin(\'modTemplateVar\', \'TemplateVar\', \'TemplateVar.id=Tagresources.tmplvar_id\');\\r\\n        $c->where(array(\\r\\n            \'TemplateVar.name:IN\' => $tvNames,\\r\\n        ));\\r\\n    }\\r\\n}\\r\\nif (!empty($docIds)) {\\r\\n    $c->where(array(\\r\\n        \'Tagresources.resource_id:IN\' => $docIds\\r\\n    ));\\r\\n}\\r\\nif (!empty($parentIds)) {\\r\\n    $c->where(array(\\r\\n        \'Resource.parent:IN\' => $parentIds\\r\\n    ));\\r\\n}\\r\\n$sorts = @explode(\',\', $sort);\\r\\nforeach ($sorts as $v) {\\r\\n    $sorter = @explode(\' \', strtolower($v));\\r\\n    $sortBy = $sorter[0];\\r\\n    $sortDir = isset($sorter[1]) && in_array($sorter[1], array(\'asc\', \'desc\')) ? $sorter[1] : \'desc\';\\r\\n    $c->sortby($sortBy, $sortDir);\\r\\n}\\r\\nif (empty($includeEmptyTags)) {\\r\\n    $c->having(\'count > 0\');\\r\\n}\\r\\n\\r\\nif ($limit) {\\r\\n    $c->limit($limit);\\r\\n}\\r\\n\\r\\n$collection = $modx->getCollection(\'smarttagTags\', $c);\\r\\n$output = \'\';\\r\\n$outputArray = array();\\r\\n$wrapper = array(\\r\\n    \'tags\' => null\\r\\n);\\r\\n$toArray = $modx->getOption(\'toArray\', $scriptProperties);\\r\\n\\r\\nif ($collection) {\\r\\n    $items = array();\\r\\n    foreach ($collection as $item) {\\r\\n        $phs = $smartTag->setPlaceholders($item->toArray(), $phsPrefix);\\r\\n        if ($toArray) {\\r\\n            $items[] = $phs;\\r\\n        } else {\\r\\n            $items[] = $smartTag->parseTpl($tplItem, $phs);\\r\\n        }\\r\\n    }\\r\\n    if ($toArray) {\\r\\n        $wrapper[\'tags\'] = $items;\\r\\n        $phs = $smartTag->setPlaceholders($wrapper, $phsPrefix);\\r\\n        $outputArray = array(\\r\\n            \'properties\' => $scriptProperties,\\r\\n            \'output\' => $phs,\\r\\n        );\\r\\n        $output = \'<pre>\' . print_r($outputArray, 1) . \'<\\/pre>\';\\r\\n    } else {\\r\\n        $wrapper[\'tags\'] = @implode(\\"\\\\n\\", $items);\\r\\n        $phs = $smartTag->setPlaceholders($wrapper, $phsPrefix);\\r\\n        $output = $smartTag->parseTpl($tplWrapper, $phs);\\r\\n    }\\r\\n}\\r\\n$toPlaceholder = $modx->getOption(\'toPlaceholder\', $scriptProperties);\\r\\nif (!empty($toPlaceholder)) {\\r\\n    $modx->setPlaceholder($toPlaceholder, $output);\\r\\n    return;\\r\\n}\\r\\nreturn $output;"}',
+        'guid' => '37a25d69d0b4b493f6073fd4bde2331e',
+        'native_key' => 0,
+        'signature' => 'f01780e85d375023027d01e341074359',
+      ),
+    ),
+    'Plugins' => 
+    array (
+      '10c1bf7695e6565d71dae5f01dc34380' => 
+      array (
+        'preserve_keys' => false,
+        'update_object' => true,
+        'unique_key' => 'name',
+        'class' => 'modPlugin',
+        'object' => '{"id":0,"source":0,"property_preprocess":1,"name":"SmartTag","description":"","editor_type":0,"category":0,"cache_type":0,"plugincode":"\\/**\\r\\n * SmartTag\\r\\n *\\r\\n * Copyright 2014 by goldsky <goldsky@virtudraft.com>\\r\\n *\\r\\n * This file is part of SmartTag, a MODX\'s custom Template Variable for tagging\\r\\n *\\r\\n * SmartTag is free software; you can redistribute it and\\/or modify it under the\\r\\n * terms of the GNU General Public License as published by the Free Software\\r\\n * Foundation version 3.\\r\\n *\\r\\n * SmartTag is distributed in the hope that it will be useful, but WITHOUT ANY\\r\\n * WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR\\r\\n * A PARTICULAR PURPOSE. See the GNU General Public License for more details.\\r\\n *\\r\\n * You should have received a copy of the GNU General Public License along with\\r\\n * SmartTag; if not, write to the Free Software Foundation, Inc., 59 Temple Place,\\r\\n * Suite 330, Boston, MA 02111-1307 USA\\r\\n *\\r\\n * @package smarttag\\r\\n * @subpackage plugin\\r\\n *\\/\\r\\n$corePath = $modx->getOption(\'core_path\', null, MODX_CORE_PATH) . \'components\\/smarttag\\/\';\\r\\nswitch ($modx->event->name) {\\r\\n    case \'OnTVInputRenderList\':\\r\\n        $modx->lexicon->load(\'smarttag:default\');\\r\\n        $modx->event->output($corePath . \'elements\\/tv\\/mgr\\/input\\/\');\\r\\n        break;\\r\\n    case \'OnTVOutputRenderList\':\\r\\n        $modx->lexicon->load(\'smarttag:default\');\\r\\n        $modx->event->output($corePath . \'elements\\/tv\\/web\\/output\\/\');\\r\\n        break;\\r\\n    case \'OnTVInputPropertiesList\':\\r\\n        $modx->lexicon->load(\'smarttag:default\');\\r\\n        $modx->event->output($corePath . \'elements\\/tv\\/mgr\\/inputproperties\\/\');\\r\\n        break;\\r\\n    case \'OnTVOutputRenderPropertiesList\':\\r\\n        $modx->lexicon->load(\'smarttag:default\');\\r\\n        $modx->event->output($corePath . \'elements\\/tv\\/mgr\\/outputrenderproperties\\/\');\\r\\n        break;\\r\\n    case \'OnDocFormSave\':\\r\\n        $tvs = $resource->getTemplateVars();\\r\\n        if ($tvs) {\\r\\n            $tablePrefix = $modx->getOption(\'smarttag.table_prefix\', null, $modx->config[modX::OPT_TABLE_PREFIX] . \'smarttag_\');\\r\\n            $modx->addPackage(\'smarttag\', $corePath . \'model\\/\', $tablePrefix);\\r\\n            foreach ($tvs as $tv) {\\r\\n                $tvArray = $tv->toArray();\\r\\n                if ($tvArray[\'type\'] === \'smarttag\') {\\r\\n                    $modx->removeCollection(\'smarttagTagresources\', array(\\r\\n                        \'tmplvar_id\' => $tvArray[\'id\'],\\r\\n                        \'resource_id\' => $resource->get(\'id\'),\\r\\n                    ));\\r\\n                    $values = array_map(\'trim\', @explode(\'||\', $tvArray[\'value\']));\\r\\n                    if (!empty($values)) {\\r\\n                        $smarttagTagresources = array();\\r\\n                        foreach ($values as $value) {\\r\\n                            if (empty($value)) {\\r\\n                                continue;\\r\\n                            }\\r\\n                            $tag = $modx->getObject(\'smarttagTags\', array(\\r\\n                                \'tag:LIKE\' => $value\\r\\n                            ));\\r\\n                            if (!$tag) {\\r\\n                                $tag = $modx->newObject(\'smarttagTags\');\\r\\n                                $tag->set(\'tag\', $value);\\r\\n                                $tag->save();\\r\\n                            }\\r\\n                            $newTagged = $modx->newObject(\'smarttagTagresources\');\\r\\n                            $params = array(\\r\\n                                \'tag_id\' => $tag->getPrimaryKey(),\\r\\n                                \'tmplvar_id\' => $tvArray[\'id\'],\\r\\n                                \'resource_id\' => $resource->get(\'id\'),\\r\\n                            );\\r\\n                            $newTagged->fromArray($params, NULL, TRUE, TRUE);\\r\\n                            $newTagged->save();\\r\\n                        }\\r\\n                    }\\r\\n                }\\r\\n            }\\r\\n        }\\r\\n        break;\\r\\n    case \'OnEmptyTrash\':\\r\\n        if ($resources) {\\r\\n            $tablePrefix = $modx->getOption(\'smarttag.table_prefix\', null, $modx->config[modX::OPT_TABLE_PREFIX] . \'smarttag_\');\\r\\n            $modx->addPackage(\'smarttag\', $corePath . \'model\\/\', $tablePrefix);\\r\\n            foreach ($resources as $resource) {\\r\\n                $modx->removeCollection(\'smarttagTagresources\', array(\\r\\n                    \'resource_id\' => $resource->get(\'id\'),\\r\\n                ));\\r\\n            }\\r\\n        }\\r\\n        break;\\r\\n    case \'OnTemplateVarRemove\':\\r\\n        if ($templateVar) {\\r\\n            $tablePrefix = $modx->getOption(\'smarttag.table_prefix\', null, $modx->config[modX::OPT_TABLE_PREFIX] . \'smarttag_\');\\r\\n            $modx->addPackage(\'smarttag\', $corePath . \'model\\/\', $tablePrefix);\\r\\n            $modx->removeCollection(\'smarttagTagresources\', array(\\r\\n                \'tmplvar_id\' => $templateVar->get(\'id\'),\\r\\n            ));\\r\\n        }\\r\\n        break;\\r\\n    default:\\r\\n        break;\\r\\n}\\r\\n\\r\\nreturn;","locked":0,"properties":null,"disabled":0,"moduleguid":"","static":0,"static_file":"","content":"\\/**\\r\\n * SmartTag\\r\\n *\\r\\n * Copyright 2014 by goldsky <goldsky@virtudraft.com>\\r\\n *\\r\\n * This file is part of SmartTag, a MODX\'s custom Template Variable for tagging\\r\\n *\\r\\n * SmartTag is free software; you can redistribute it and\\/or modify it under the\\r\\n * terms of the GNU General Public License as published by the Free Software\\r\\n * Foundation version 3.\\r\\n *\\r\\n * SmartTag is distributed in the hope that it will be useful, but WITHOUT ANY\\r\\n * WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR\\r\\n * A PARTICULAR PURPOSE. See the GNU General Public License for more details.\\r\\n *\\r\\n * You should have received a copy of the GNU General Public License along with\\r\\n * SmartTag; if not, write to the Free Software Foundation, Inc., 59 Temple Place,\\r\\n * Suite 330, Boston, MA 02111-1307 USA\\r\\n *\\r\\n * @package smarttag\\r\\n * @subpackage plugin\\r\\n *\\/\\r\\n$corePath = $modx->getOption(\'core_path\', null, MODX_CORE_PATH) . \'components\\/smarttag\\/\';\\r\\nswitch ($modx->event->name) {\\r\\n    case \'OnTVInputRenderList\':\\r\\n        $modx->lexicon->load(\'smarttag:default\');\\r\\n        $modx->event->output($corePath . \'elements\\/tv\\/mgr\\/input\\/\');\\r\\n        break;\\r\\n    case \'OnTVOutputRenderList\':\\r\\n        $modx->lexicon->load(\'smarttag:default\');\\r\\n        $modx->event->output($corePath . \'elements\\/tv\\/web\\/output\\/\');\\r\\n        break;\\r\\n    case \'OnTVInputPropertiesList\':\\r\\n        $modx->lexicon->load(\'smarttag:default\');\\r\\n        $modx->event->output($corePath . \'elements\\/tv\\/mgr\\/inputproperties\\/\');\\r\\n        break;\\r\\n    case \'OnTVOutputRenderPropertiesList\':\\r\\n        $modx->lexicon->load(\'smarttag:default\');\\r\\n        $modx->event->output($corePath . \'elements\\/tv\\/mgr\\/outputrenderproperties\\/\');\\r\\n        break;\\r\\n    case \'OnDocFormSave\':\\r\\n        $tvs = $resource->getTemplateVars();\\r\\n        if ($tvs) {\\r\\n            $tablePrefix = $modx->getOption(\'smarttag.table_prefix\', null, $modx->config[modX::OPT_TABLE_PREFIX] . \'smarttag_\');\\r\\n            $modx->addPackage(\'smarttag\', $corePath . \'model\\/\', $tablePrefix);\\r\\n            foreach ($tvs as $tv) {\\r\\n                $tvArray = $tv->toArray();\\r\\n                if ($tvArray[\'type\'] === \'smarttag\') {\\r\\n                    $modx->removeCollection(\'smarttagTagresources\', array(\\r\\n                        \'tmplvar_id\' => $tvArray[\'id\'],\\r\\n                        \'resource_id\' => $resource->get(\'id\'),\\r\\n                    ));\\r\\n                    $values = array_map(\'trim\', @explode(\'||\', $tvArray[\'value\']));\\r\\n                    if (!empty($values)) {\\r\\n                        $smarttagTagresources = array();\\r\\n                        foreach ($values as $value) {\\r\\n                            if (empty($value)) {\\r\\n                                continue;\\r\\n                            }\\r\\n                            $tag = $modx->getObject(\'smarttagTags\', array(\\r\\n                                \'tag:LIKE\' => $value\\r\\n                            ));\\r\\n                            if (!$tag) {\\r\\n                                $tag = $modx->newObject(\'smarttagTags\');\\r\\n                                $tag->set(\'tag\', $value);\\r\\n                                $tag->save();\\r\\n                            }\\r\\n                            $newTagged = $modx->newObject(\'smarttagTagresources\');\\r\\n                            $params = array(\\r\\n                                \'tag_id\' => $tag->getPrimaryKey(),\\r\\n                                \'tmplvar_id\' => $tvArray[\'id\'],\\r\\n                                \'resource_id\' => $resource->get(\'id\'),\\r\\n                            );\\r\\n                            $newTagged->fromArray($params, NULL, TRUE, TRUE);\\r\\n                            $newTagged->save();\\r\\n                        }\\r\\n                    }\\r\\n                }\\r\\n            }\\r\\n        }\\r\\n        break;\\r\\n    case \'OnEmptyTrash\':\\r\\n        if ($resources) {\\r\\n            $tablePrefix = $modx->getOption(\'smarttag.table_prefix\', null, $modx->config[modX::OPT_TABLE_PREFIX] . \'smarttag_\');\\r\\n            $modx->addPackage(\'smarttag\', $corePath . \'model\\/\', $tablePrefix);\\r\\n            foreach ($resources as $resource) {\\r\\n                $modx->removeCollection(\'smarttagTagresources\', array(\\r\\n                    \'resource_id\' => $resource->get(\'id\'),\\r\\n                ));\\r\\n            }\\r\\n        }\\r\\n        break;\\r\\n    case \'OnTemplateVarRemove\':\\r\\n        if ($templateVar) {\\r\\n            $tablePrefix = $modx->getOption(\'smarttag.table_prefix\', null, $modx->config[modX::OPT_TABLE_PREFIX] . \'smarttag_\');\\r\\n            $modx->addPackage(\'smarttag\', $corePath . \'model\\/\', $tablePrefix);\\r\\n            $modx->removeCollection(\'smarttagTagresources\', array(\\r\\n                \'tmplvar_id\' => $templateVar->get(\'id\'),\\r\\n            ));\\r\\n        }\\r\\n        break;\\r\\n    default:\\r\\n        break;\\r\\n}\\r\\n\\r\\nreturn;"}',
+        'guid' => '4035ce88e14ccb7d826cf293d5f1b917',
+        'native_key' => 0,
+        'signature' => 'bc23d19c0af4dcabfd3bc7447d48d6cd',
+        'related_objects' => 
+        array (
+          'PluginEvents' => 
+          array (
+            'd028da80199d2b325589d4491bc53ac0' => 
+            array (
+              'preserve_keys' => true,
+              'update_object' => false,
+              'unique_key' => 
+              array (
+                0 => 'pluginid',
+                1 => 'event',
+              ),
+              'class' => 'modPluginEvent',
+              'object' => '{"pluginid":0,"event":"OnTVInputRenderList","priority":0,"propertyset":0}',
+              'guid' => 'f79707a8e48a1156aea74f626305982d',
+              'native_key' => 
+              array (
+                0 => 0,
+                1 => 'OnTVInputRenderList',
+              ),
+              'signature' => 'bdb5065e82c3f272f13997a9486ceb24',
+            ),
+            'c410e7cf79cf13439b712ddddb497623' => 
+            array (
+              'preserve_keys' => true,
+              'update_object' => false,
+              'unique_key' => 
+              array (
+                0 => 'pluginid',
+                1 => 'event',
+              ),
+              'class' => 'modPluginEvent',
+              'object' => '{"pluginid":0,"event":"OnTVOutputRenderList","priority":0,"propertyset":0}',
+              'guid' => '136c98e8f076290e88e178eb9013ff88',
+              'native_key' => 
+              array (
+                0 => 0,
+                1 => 'OnTVOutputRenderList',
+              ),
+              'signature' => '5565a57dc7f0aaa8b06accf53244458b',
+            ),
+            '0dbbc8337a59f8d7e4403d837ea3eb33' => 
+            array (
+              'preserve_keys' => true,
+              'update_object' => false,
+              'unique_key' => 
+              array (
+                0 => 'pluginid',
+                1 => 'event',
+              ),
+              'class' => 'modPluginEvent',
+              'object' => '{"pluginid":0,"event":"OnTVInputPropertiesList","priority":0,"propertyset":0}',
+              'guid' => 'b6025793e640c685640081dc40a9f3f9',
+              'native_key' => 
+              array (
+                0 => 0,
+                1 => 'OnTVInputPropertiesList',
+              ),
+              'signature' => 'd55c84abc2db3e3eefa9551d6fc048d9',
+            ),
+            'f58cd76c07ffc35ccc2c358819f03dbd' => 
+            array (
+              'preserve_keys' => true,
+              'update_object' => false,
+              'unique_key' => 
+              array (
+                0 => 'pluginid',
+                1 => 'event',
+              ),
+              'class' => 'modPluginEvent',
+              'object' => '{"pluginid":0,"event":"OnTVOutputRenderPropertiesList","priority":0,"propertyset":0}',
+              'guid' => '40ced7de5f1103eab185a67c8f6fe287',
+              'native_key' => 
+              array (
+                0 => 0,
+                1 => 'OnTVOutputRenderPropertiesList',
+              ),
+              'signature' => '9fadfcccc1f6a669f41ff0dcb3defd93',
+            ),
+            '18d7cbd538928a095ab726481e9be60a' => 
+            array (
+              'preserve_keys' => true,
+              'update_object' => false,
+              'unique_key' => 
+              array (
+                0 => 'pluginid',
+                1 => 'event',
+              ),
+              'class' => 'modPluginEvent',
+              'object' => '{"pluginid":0,"event":"OnDocFormSave","priority":0,"propertyset":0}',
+              'guid' => 'd25e5107b48e91a4156484cb79c4561f',
+              'native_key' => 
+              array (
+                0 => 0,
+                1 => 'OnDocFormSave',
+              ),
+              'signature' => 'fbba9eab08d0274401f46710e8d78974',
+            ),
+            'fecf0cdf4ab505fbaa9731aec36e32c1' => 
+            array (
+              'preserve_keys' => true,
+              'update_object' => false,
+              'unique_key' => 
+              array (
+                0 => 'pluginid',
+                1 => 'event',
+              ),
+              'class' => 'modPluginEvent',
+              'object' => '{"pluginid":0,"event":"OnEmptyTrash","priority":0,"propertyset":0}',
+              'guid' => '72d22e1e00d7dee1c0e2022458647a44',
+              'native_key' => 
+              array (
+                0 => 0,
+                1 => 'OnEmptyTrash',
+              ),
+              'signature' => '440f6bce7bd92aa36bd8f98d9897407d',
+            ),
+            '43c0c02f50f97763a6a552f432562062' => 
+            array (
+              'preserve_keys' => true,
+              'update_object' => false,
+              'unique_key' => 
+              array (
+                0 => 'pluginid',
+                1 => 'event',
+              ),
+              'class' => 'modPluginEvent',
+              'object' => '{"pluginid":0,"event":"OnTemplateVarRemove","priority":0,"propertyset":0}',
+              'guid' => 'c086fa266f6938057ea4a16d0a57706f',
+              'native_key' => 
+              array (
+                0 => 0,
+                1 => 'OnTemplateVarRemove',
+              ),
+              'signature' => '59a806c60c563b5d086fcbf7e2f83412',
+            ),
+          ),
+        ),
+      ),
+    ),
+  ),
+  'related_object_attributes' => 
+  array (
+    'Snippets' => 
+    array (
+      'preserve_keys' => false,
+      'update_object' => true,
+      'unique_key' => 'name',
+    ),
+    'Chunks' => 
+    array (
+      'preserve_keys' => false,
+      'update_object' => true,
+      'unique_key' => 'name',
+    ),
+    'Plugins' => 
+    array (
+      'preserve_keys' => false,
+      'update_object' => true,
+      'unique_key' => 'name',
+    ),
+    'PluginEvents' => 
+    array (
+      'preserve_keys' => true,
+      'update_object' => false,
+      'unique_key' => 
+      array (
+        0 => 'pluginid',
+        1 => 'event',
+      ),
+    ),
+  ),
+  'namespace' => 'smarttag',
+  'resolve' => 
+  array (
+    0 => 
+    array (
+      'type' => 'file',
+      'body' => '{"source":"smarttag-1.0.1-pl\\/modCategory\\/dda13938e4c2d74f3083a662966cd778\\/0\\/","target":"return MODX_CORE_PATH . \'components\\/\';","name":"smarttag"}',
+    ),
+    1 => 
+    array (
+      'type' => 'file',
+      'body' => '{"source":"smarttag-1.0.1-pl\\/modCategory\\/dda13938e4c2d74f3083a662966cd778\\/1\\/","target":"return MODX_ASSETS_PATH . \'components\\/\';","name":"smarttag"}',
+    ),
+    2 => 
+    array (
+      'type' => 'php',
+      'body' => '{"source":"smarttag-1.0.1-pl\\/modCategory\\/dda13938e4c2d74f3083a662966cd778.tables.resolver.resolver","type":"php","name":"tables.resolver"}',
+    ),
+    3 => 
+    array (
+      'type' => 'php',
+      'body' => '{"source":"smarttag-1.0.1-pl\\/modCategory\\/dda13938e4c2d74f3083a662966cd778.policy.resolver.resolver","type":"php","name":"policy.resolver"}',
+    ),
+  ),
+  'validate' => NULL,
+  'vehicle_package' => 'transport',
+  'vehicle_class' => 'xPDOObjectVehicle',
+  'guid' => '25971b0accefa1672bf9ad9af3dddd32',
+  'package' => 'modx',
+  'class' => 'modCategory',
+  'signature' => 'dda13938e4c2d74f3083a662966cd778',
+  'native_key' => 1,
+  'object' => '{"id":1,"parent":0,"category":"SmartTag"}',
+);

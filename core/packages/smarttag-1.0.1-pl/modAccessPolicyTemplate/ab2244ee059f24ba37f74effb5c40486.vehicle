@@ -1,0 +1,53 @@
+<?php return array (
+  'preserve_keys' => false,
+  'unique_key' => 
+  array (
+    0 => 'name',
+  ),
+  'update_object' => true,
+  'related_objects' => 
+  array (
+    'Permissions' => 
+    array (
+      'c6f03d262bbc05dbae31a0b421d5b5c2' => 
+      array (
+        'preserve_keys' => false,
+        'update_object' => true,
+        'unique_key' => 
+        array (
+          0 => 'template',
+          1 => 'name',
+        ),
+        'class' => 'modAccessPermission',
+        'object' => '{"id":null,"template":0,"name":"smarttag.tools_page","description":"perm.tools_page","value":1}',
+        'guid' => '21c5245d6820ff6004b79bb518105c07',
+        'native_key' => NULL,
+        'signature' => '88c2257139a620856bdfbcb0357221a1',
+      ),
+    ),
+  ),
+  'related_object_attributes' => 
+  array (
+    'Permissions' => 
+    array (
+      'preserve_keys' => false,
+      'update_object' => true,
+      'unique_key' => 
+      array (
+        0 => 'template',
+        1 => 'name',
+      ),
+    ),
+  ),
+  'namespace' => 'smarttag',
+  'resolve' => NULL,
+  'validate' => NULL,
+  'vehicle_package' => 'transport',
+  'vehicle_class' => 'xPDOObjectVehicle',
+  'guid' => 'b23718a3647e6c5df7885c18b56e9d87',
+  'package' => 'modx',
+  'class' => 'modAccessPolicyTemplate',
+  'signature' => 'ab2244ee059f24ba37f74effb5c40486',
+  'native_key' => NULL,
+  'object' => '{"id":null,"template_group":1,"name":"SmartTagTemplate","description":"A policy template for SmartTag package.","lexicon":"smarttag:permissions"}',
+);

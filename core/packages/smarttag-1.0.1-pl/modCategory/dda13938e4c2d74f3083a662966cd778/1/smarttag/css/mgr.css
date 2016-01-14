@@ -1,0 +1,27 @@
+#modAB {
+    display: none;
+}
+
+/* overrides modx-theme */
+/* declare this first!!! */
+#smarttag-panel-tagcloud {}
+#smarttag-panel-tagcloud .smarttag-tag-btn {
+    float: left;
+    margin: 5px 5px 0 0;
+}
+
+#smarttag-converter-hbox .x-btn,
+#smarttag-csvimporter-hbox .x-btn {
+    position: absolute !important;
+}
+
+#smarttag-top-nav {
+    background-color: transparent;
+    border: none;
+}
+
+#smarttag_about {
+    font-size: 10px;
+    margin: 5px;
+    color: #bbbbbb;
+}

@@ -1,0 +1,16 @@
+<?php return array (
+  'unique_key' => 'key',
+  'preserve_keys' => true,
+  'update_object' => false,
+  'namespace' => 'smarttag',
+  'resolve' => NULL,
+  'validate' => NULL,
+  'vehicle_package' => 'transport',
+  'vehicle_class' => 'xPDOObjectVehicle',
+  'guid' => '8e4e971524536ea119e05dab5be16eea',
+  'package' => 'modx',
+  'class' => 'modSystemSetting',
+  'signature' => '8fcedf5eb95317b535c12641006c721c',
+  'native_key' => 'smarttag.limit',
+  'object' => '{"key":"smarttag.limit","value":50,"xtype":"textfield","namespace":"smarttag","area":"","editedon":null}',
+);
